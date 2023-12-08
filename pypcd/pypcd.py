@@ -252,8 +252,7 @@ def parse_binary_compressed_pc_data(f, dtype, metadata):
     if len(buf) != uncompressed_size:
         raise Exception('Error decompressing data')
     # the data is stored field-by-field
-    point_num = max(metadata['width'], metadata['height'])
-    pc_data = np.zeros(point_num, dtype=dtype)
+    pc_data = np.zeros(metadata['width'], dtype=dtype)
     ix = 0
     for dti in range(len(dtype)):
         dt = dtype[dti]
